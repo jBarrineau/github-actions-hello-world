@@ -1,0 +1,16 @@
+name: hello-again-here
+on: [push]
+jobs:
+    say-hello:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "This job is running on ${{ runner.os }} server hosted by Github!"
+            - name: Check out code repo
+              uses: actions/checkout@v2
+            - run: echo "Found your repo.  Its called ${{ github.repository }}."
+            - name: List files in the directory
+              run: |
+                  ls ${{ github.workspace }}
+            - run: echo "The job status is ${{ job.status }}."
+            
+
